@@ -38,7 +38,8 @@ FROM products
 ORDER BY category_id, seller_id;
 ```
 **Назначение:** уникальные пары «категория — продавец». 2000 товаров сворачиваются в 100 пар.
-**Результат:** *(вставить)*
+**Результат:** <img width="1920" height="1051" alt="image" src="https://github.com/user-attachments/assets/2999ded7-e7b2-4564-94c6-25a163f2a239" />
+
 
 ### Запрос 2. AND / OR со скобками
 ```sql
@@ -50,7 +51,8 @@ WHERE is_active = TRUE
 ORDER BY price;
 ```
 **Назначение:** активные товары первых десяти продавцов, дешёвые или дорогие. Скобки нужны, потому что `AND` приоритетнее `OR`: без них условие по цене «оторвалось» бы от остальных.
-**Результат:** *(вставить)*
+**Результат:** <img width="1920" height="1051" alt="image" src="https://github.com/user-attachments/assets/b7a74384-37b8-49d0-85d5-5932bd1eb9ce" />
+
 
 ### Запрос 3. BETWEEN
 ```sql
@@ -61,7 +63,8 @@ WHERE price BETWEEN 5000 AND 10000
 ORDER BY created_at DESC;
 ```
 **Назначение:** товары средней цены, добавленные за последние 30 дней.
-**Результат:** *(вставить)*
+**Результат:** <img width="1920" height="1051" alt="image" src="https://github.com/user-attachments/assets/ac9c2f19-7ce2-4346-80c0-9c3d8295c345" />
+
 
 ### Запрос 4. IN
 ```sql
@@ -71,7 +74,8 @@ WHERE status IN ('shipped', 'delivered') AND total_amount >= 50000
 ORDER BY total_amount DESC;
 ```
 **Назначение:** крупные заказы на этапе отправки или уже доставленные.
-**Результат:** *(вставить)*
+**Результат:** <img width="1920" height="1051" alt="image" src="https://github.com/user-attachments/assets/4e82d704-7cfb-4980-8b0c-a41d47541a63" />
+
 
 ### Запрос 5а. ILIKE и %
 ```sql
@@ -79,7 +83,8 @@ SELECT id, title, price FROM products
 WHERE title ILIKE 'смартфон%' ORDER BY id;
 ```
 **Назначение:** поиск смартфонов без учёта регистра.
-**Результат:** *(вставить)*
+**Результат:** <img width="1920" height="1051" alt="image" src="https://github.com/user-attachments/assets/e8781317-5d7d-4499-89c9-7fbdce92ca68" />
+
 
 ### Запрос 5б. LIKE и _
 ```sql
@@ -87,7 +92,8 @@ SELECT id, title FROM products
 WHERE title LIKE '%модель 1_5' ORDER BY id;
 ```
 **Назначение:** модели с номером вида 105, 115, …, 195 (`_` заменяет ровно один символ).
-**Результат:** *(вставить)*
+**Результат:** <img width="1920" height="1051" alt="image" src="https://github.com/user-attachments/assets/2642f6a2-47ab-4ca2-8d2d-33003ec70a82" />
+
 
 ### Запрос 6а. IS NULL
 ```sql
@@ -95,7 +101,8 @@ SELECT id, title, price FROM products
 WHERE description IS NULL ORDER BY id;
 ```
 **Назначение:** товары без описания, которые нужно дозаполнить.
-**Результат:** *(вставить)*
+**Результат:** <img width="1920" height="1051" alt="image" src="https://github.com/user-attachments/assets/6deafa0c-d595-48a2-9814-2e0a4a558cf0" />
+
 
 ### Запрос 6б. IS NOT NULL
 ```sql
@@ -103,7 +110,8 @@ SELECT id, full_name, phone FROM users
 WHERE phone IS NOT NULL ORDER BY id LIMIT 20;
 ```
 **Назначение:** пользователи с указанным телефоном.
-**Результат:** *(вставить)*
+**Результат:** <img width="1920" height="1051" alt="image" src="https://github.com/user-attachments/assets/c135904c-5cb9-42c5-9a9f-9d48cd2bbf66" />
+
 
 ### Запрос 7. Сортировка по двум столбцам
 ```sql
@@ -114,7 +122,8 @@ ORDER BY category_id ASC, price DESC
 LIMIT 20;
 ```
 **Назначение:** категории по возрастанию, внутри категории товары от дорогих к дешёвым.
-**Результат:** *(вставить)*
+**Результат:** <img width="1920" height="1051" alt="image" src="https://github.com/user-attachments/assets/a5b9a0c4-2be1-4381-af8e-a35be590c23e" />
+
 
 ### Запрос 8. Постраничный вывод
 ```sql
@@ -125,7 +134,10 @@ ORDER BY price DESC, id
 LIMIT 10 OFFSET 0;   -- страница 1; для страницы N: OFFSET (N-1)*10
 ```
 **Назначение:** выдача каталога по 10 товаров. Вторым ключом сортировки служит `id`, чтобы порядок был однозначным и строки не повторялись на соседних страницах.
-**Результат (страницы 1, 2, 3):** *(вставить)*
+**Результат:** <img width="1920" height="1051" alt="image" src="https://github.com/user-attachments/assets/56a0336e-4af5-4ede-bbaa-8100f3dff742" />
+<img width="1920" height="1051" alt="image" src="https://github.com/user-attachments/assets/9f1c6ebe-c0ad-47ec-852f-27511418fbdd" />
+<img width="1920" height="1051" alt="image" src="https://github.com/user-attachments/assets/91a041be-5558-49e9-bb3c-458b96d3c60c" />
+
 
 ## 3. Ответы на контрольные вопросы
 
